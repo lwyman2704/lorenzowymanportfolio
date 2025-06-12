@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+            background-color: #f8fafc;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1440 900"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:rgb(32,178,170);stop-opacity:0.2" /><stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:0.1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(%23grad)" /><path fill="rgba(255,255,255,0.3)" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 500ms ease-in-out;
+        }
+
+        .phone-container {
+            position: relative;
+            width: 220px;
+            height: 440px;
+            margin: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .phone-container:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .phone-frame {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #222;
+            border-radius: 36px;
+            padding: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .phone-screen {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            border-radius: 28px;
+            overflow: hidden;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 24px;
+            background-color: #222;
+            border-bottom-left-radius: 14px;
+            border-bottom-right-radius: 14px;
+            z-index: 10;
+        }
+
+        .phone-screenshot {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 1. Generic device (defaults to phone) */
+        .device-container {
+            position: relative;
+            width: 220px;
+            height: 440px;
+            margin: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .device-container:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .device-frame {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #222;
+            border-radius: 36px;
+            /* phone radius */
+            padding: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .device-screen {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            border-radius: 28px;
+            /* phone screen radius */
+            overflow: hidden;
+        }
+
+        /* notch only on phones */
+        .device-container.phone .device-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 24px;
+            background-color: #222;
+            border-bottom-left-radius: 14px;
+            border-bottom-right-radius: 14px;
+            z-index: 10;
+        }
+
+        /* screenshot stays the same */
+        .device-screenshot {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 2. Tablet overrides */
+        .device-container.tablet {
+            width: 320px;
+            height: 500px;
+        }
+
+        .device-container.tablet .device-frame {
+            border-radius: 20px;
+            /* smoother corners */
+            padding: 20px;
+        }
+
+        .device-container.tablet .device-screen {
+            border-radius: 16px;
+        }
+
+        /* hide the notch on tablets */
+        .device-container.tablet .device-notch {
+            display: none;
+        }
+
+        /* 3. Laptop overrides */
+        .device-container.laptop {
+            width: 510px;
+            height: 330px;
+
+        }
+
+        .device-container.laptop .device-frame {
+            border-radius: 25px 25px 25px 25px;
+            /* only top corners round */
+            padding: 8px;
+        }
+
+        /* no notch on laptops */
+        .device-container.laptop .device-notch {
+            display: none;
+
+
+        }
+
+        /* little base under the screen */
+        .device-container.laptop .device-base {
+            position: absolute;
+            bottom: -16px;
+            /* sticks below frame */
+            left: 15%;
+            width: 70%;
+            height: 16px;
+            background-color: #222;
+            border-radius: 0 0 2px 2px;
+        }
+
+        .device-container {
+            transition: all 0.3s ease;
+        }
+
+        .device-container:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+        }
+
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        .carousel-inner {
+            display: flex;
+            animation: scroll 20s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-100px * 8));
+                /* Adjust based on item width and count */
+            }
+        }
+
+        .carousel-item {
+            flex: 0 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .tech-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .tech-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .tech-icon svg {
+            width: 50px;
+            height: 50px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-text {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #20B2AA, #5f9ea0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtext {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+
+        .play-btn {
+            background: rgba(32, 178, 170, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(32, 178, 170, 0.3);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .play-btn:hover {
+            background: rgba(32, 178, 170, 0.3);
+            transform: scale(1.1);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 75%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 900px;
+            z-index: 100;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #20B2AA;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 40px;
+            color: #20B2AA;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(45deg, #20B2AA, #5f9ea0);
+            border-radius: 2px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(32, 178, 170, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            background-color: rgba(32, 178, 170, 0.2);
+        }
+
+        .profile-pic {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 5px solid rgba(32, 178, 170, 0.2);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .wave {
+            animation: wave 2s linear infinite;
+            transform-origin: 70% 70%;
+            display: inline-block;
+        }
+
+        @keyframes wave {
+            0% {
+                transform: rotate(0.0deg)
+            }
+
+            10% {
+                transform: rotate(14.0deg)
+            }
+
+            20% {
+                transform: rotate(-8.0deg)
+            }
+
+            30% {
+                transform: rotate(14.0deg)
+            }
+
+            40% {
+                transform: rotate(-4.0deg)
+            }
+
+            50% {
+                transform: rotate(10.0deg)
+            }
+
+            60% {
+                transform: rotate(0.0deg)
+            }
+
+            100% {
+                transform: rotate(0.0deg)
+            }
+        }
+
+        .glow {
+            box-shadow: 0 0 20px rgba(32, 178, 170, 0.4);
+        }
+
+        .project-tag {
+            background: rgba(32, 178, 170, 0.1);
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            color: #20B2AA;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(180deg, rgba(32, 178, 170, 0.2) 0%, rgba(95, 158, 160, 0.1) 100%);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            animation: blob-move 15s infinite alternate;
+        }
+
+        @keyframes blob-move {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(100px, -100px) scale(1.2);
+            }
+
+            66% {
+                transform: translate(-100px, 100px) scale(0.8);
+            }
+
+            100% {
+                transform: translate(50px, -50px) scale(1);
+            }
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            height: 300px;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            padding: 20px;
+            color: white;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+        }
+
+        .photo-item:hover .photo-overlay {
+            transform: translateY(0);
+        }
+
+        .education-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #20B2AA;
+        }
+
+        .education-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 24px;
+            width: 2px;
+            height: calc(100% - 8px);
+            background-color: #20B2AA;
+        }
+
+        .education-item:last-child::after {
+            display: none;
+        }
+
+        .reveal {
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-link {
+            position: relative;
+            color: #333;
+            text-decoration: none;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #20B2AA;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover {
+            color: #20B2AA;
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .project-description {
+            max-width: 220px;
+            margin: 0 auto;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background-color: #f8fafc;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #20B2AA;
+            box-shadow: 0 0 0 3px rgba(32, 178, 170, 0.2);
+        }
+
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background: #20B2AA;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #1a9090;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-info-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(32, 178, 170, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        .contact-info-text {
+            color: #4b5563;
+        }
+
+        .contact-info-text h4 {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #1f2937;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            /* behind everything */
+        }
+
+        .hero-content {
+            /* already has z-index:10; */
+        }
+
+        /* optional: make your text a lighter color over the video */
+        .hero-text,
+        .hero-subtext {
+            color: #f8fafc;
+        }
+
+        /* small helper for delaying second fade-in */
+        .delay-500 {
+            animation-delay: 500ms;
+        }
+
+        html,
+        body,
+        input,
+        button,
+        textarea,
+        select {
+            font-family: 'Poppins', sans-serif !important;
+        }
+
+        /* THIS will actually apply */
+        .profile-pic img {
+            /* you can set a default if you like, or remove entirely */
+            object-position: center;
+        }
+
+
+        .phone-screenshot {
+            transform: scale(1);
+            /* zoom out to 90% */
+            transform-origin: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Animated blobs -->
+    <div class="blob" style="top: 20%; left: 10%;"></div>
+    <div class="blob" style="bottom: 10%; right: 5%;"></div>
+
+    <nav class="navbar">
+        <a href="https://zotography.com" target="_blank" rel="noopener noreferrer"
+            class="logo flex items-center space-x-1 hover:text-gray-700">
+            <span>ZoTography</span>
+            <!-- external-link icon from Heroicons -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h6m0 0v6m0-6L10 16M5 5h4M5 5v14h14" />
+            </svg>
+        </a>
+
+        <div class="flex space-x-6">
+            <a href="#about" class="nav-link">Me</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#photography" class="nav-link">Photography</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <section class="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+        <video class="hero-video" src="bckvideoreduced.mp4" autoplay muted loop playsinline></video>
+
+        <div class="hero-content flex items-center space-x-8 z-10 px-4 md:px-8 lg:px-16">
+            <div><!-- text container -->
+                <!-- BIGGER, BOLDER NAME -->
+                <h1 id="heroText1" class="text-6xl md:text-8xl lg:text-9xl font-extrabold leading-tight tracking-tight
+               bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-cyan-300 text-left">
+                    <span class="block">Lorenzo</span>
+                    <span class="block">Wyman</span>
+                </h1>
+
+                <h2 id="heroText2" class="hero-subtext fade-in delay-500 text-gray-100 text-4xl mt-6">
+                    Graphic Designer &amp; Front-End Developer
+                </h2>
+            </div>
+
+            <div
+                class="profile-pic floating glow w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-lg">
+                <img src="PXL_20250518_164324916.RAW-01.COVER.jpg" alt="Lorenzo Wyman"
+                    class="w-full h-full object-cover transform scale-70 origin-center transition-transform duration-300" />
+            </div>
+
+
+        </div>
+    </section>
+
+
+
+    <section id="about" class="py-20 px-4 bg-white">
+        <div class="container mx-auto">
+            <h2 class="section-title text-3xl font-bold mb-12">Get to Know Me!</h2>
+
+            <div class="flex flex-col md:flex-row items-center justify-center">
+                <div class="md:w-1/3 flex justify-center mb-8 md:mb-0">
+                    <div
+                        class="profile-pic floating glow w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden shadow-lg">
+                        <img src="pfpersnality2.png" alt="Lorenzo Wyman"
+                            class="w-full h-full object-cover transform scale-85 origin-center transition-transform duration-300" />
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-4">Hello Everyone! <span class="wave">👋</span></h3>
+                    <p class="text-gray-600 text-lg mb-6">My name is Lorenzo, I'm a 3rd year Computer Science major at the University of Central Florida and passionate graphic designer looking to also obtain a major in Digital media or Graphic design. I'm an aspiring front-end developer with a love
+                        for creating beautiful, functional digital experiences with my camera when given the opportunity. With expertise in both design and
+                        development, I enjoy bringing ideas to life through clean code and intuitive design (and a DSLR lens).</p>
+                    <p class="text-gray-600 text-lg mb-6">When I'm not coding or designing, you can find me researching tutorials on how to better improve my coding, photography, editing, music creation, auto skills and more. Two quotes I vividly remember and agree with are: </p>
+                    <p class="text-gray-600 text-lg mb-6">"Hard work beats talent, when talent does not work hard ~ Tim Notke" </p>
+                    <p class="text-gray-600 text-lg mb-6">"If every porkchop were perfect, we wouldn't have hotdogs. ~ Steven Universe, Rebecca Sugar"</p>
+
+                      <p class="text-gray-600 text-lg mb-6">Hope you enjoy my portfolio! Feel free to let me know your thoughts below! 😎</p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="project-tag">Web Development</span>
+                        <span class="project-tag">UI/UX Design</span>
+                        <span class="project-tag">Graphic Design</span>
+                        <span class="project-tag">Photography</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-20 px-4 bg-teal-50">
+        <div class="container mx-auto">
+            <h2 class="section-title text-3xl font-bold mb-12">Education</h2>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="education-item reveal">
+                    <h3 class="text-xl font-bold text-gray-800">Bachelors of Science in Computer Science</h3>
+                    <p class="text-gray-500">University of Central Florida | Orlando, FL | 2024 - Present</p>
+                    <p class="text-gray-600 mt-2">Related Coursework: Computer Science I, Computer Logic and Orginazation, Intro to Discrete Mathematics, Object Oriented Programming, Security in Computing</p>
+                    <p class="text-gray-600 mt-2">Clubs & Academic Involvements: Knight Hacks Outreach Team, Hack@UCF,
+                        Design & Code@UCF</p>
+
+                </div>
+
+                <div class="education-item reveal">
+                    <h3 class="text-xl font-bold text-gray-800">Associates of Arts in Computer Science</h3>
+                    <p class="text-gray-500">Santa Fe College | Gainesville, FL | 2022 - 2024</p>
+                    <p class="text-gray-600 mt-2">Clubs & Academic Involvements: Black Student Union (BSU), Signing
+                        Saints, Gator Engineering (GE@SF)</p>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="Experience" class="py-20 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="section-title text-3xl font-bold mb-12">Experience</h2>
+
+            <div class="max-w-3xl mx-auto">
+
+                <div class="education-item reveal">
+                    <h3 class="text-xl font-bold text-gray-800">Knight Hacks Outreach Team Photographer</h3>
+                    <p class="text-gray-500">Knight Hacks | University of Central Florida | Orlando, FL | May 2025 - Present</p>
+                    <p class="text-gray-600 mt-2">Coordinated and planned photo opportunities at 5+ events (Tabling, Hackathons, Meetings & Interviews).</p>
+                    <p class="text-gray-600 mt-2">Promoted, assisted, and contributed to the short form content posted on the club Instagram Reels page.</p>
+                </div>
+
+                <div class="education-item reveal">
+                    <h3 class="text-xl font-bold text-gray-800">PantryPal UI/UX Software Developer</h3>
+                    <p class="text-gray-500">Knight Hacks | University of Central Florida | Orlando, FL | February 2025 - April 2025</p>
+                    <p class="text-gray-600 mt-2">Developed a well thought out and efficient UI using JavaScript, CSS, and HTML for our group's mobile food storage and recipe app.</p>
+                    <p class="text-gray-600 mt-2">Worked with groupmates to meet deadlines, finalize revisions, improve and debug code in front and backend.</p>
+                </div>
+
+                <div class="education-item reveal">
+                    <h3 class="text-xl font-bold text-gray-800">EXCEL Peer Coach</h3>
+                    <p class="text-gray-500">University of Central Florida | Orlando, FL | May 2025 - Present</p>
+                    <p class="text-gray-600 mt-2">Monitored and performed check-ins on student performance in courses to ensure they remained on the right track by creating plans and reoccurring sessions.</p>
+                    <p class="text-gray-600 mt-2">Coached 50+ students assigned to my roster with academic, personal, or career goals to land internships, contact useful resources
+                        and more.
+                    </p>
+                    <p class="text-gray-600 mt-2"></p>
+                    
+                </div>
+
+                <div class="education-item reveal">
+                    <h3 class="text-xl font-bold text-gray-800">Academic Success Coach</h3>
+                    <p class="text-gray-500">Santa Fe College | Gainesville, FL | September 2023 - April 2024</p>
+                    <p class="text-gray-600 mt-2">Coachced 60+ students with academic and financial concerns while informing them of helpful resources for their specific purpose.</p>
+                    <p class="text-gray-600 mt-2">Assisted and navigated students through hardships on campus, utilizing coaching tools and personal experiences.</p>
+                </div>
+                <div class="education-item reveal">
+                    <h3 class="text-xl font-bold text-gray-800">Journalist Photographer</h3>
+                    <p class="text-gray-500">Seacoast Christian Academy | Jacksonville FL | August 2018 - May 2022</p>
+                    <p class="text-gray-600 mt-2">Focused on photography and graphic design of yearbooks using Jostens software, Irfanview, and Adobe to create a professional final product.</p>
+                    <p class="text-gray-600 mt-2">Lead the yearbook team with 5+ years of experience to create a highly-praised yearbook that incresased yearbook sales by 60% compared to other years.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="section-title text-3xl font-bold mb-12">
+                Skills & Technologies
+            </h2>
+
+            <p class="text-gray-600 text-lg mt-2">
+                Here are some of the technologies and tools I work with regularly.
+            </p>
+
+            <p class="text-gray-600 text-lg mt-2 mb-6">
+               My skill set is always evolving as I learn new things and take on new challenges. 
+            </p>
+            <div class="carousel">
+                <div class="carousel-inner">
+
+                    <!-- Primary set -->
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="html-logo.png" alt="HTML logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">HTML</p>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="java.png" alt="Java logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Java</p>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="jslogo.png" alt="JavaScript logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">JavaScript</p>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="reactlogo.webp" alt="React logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">React</p>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="python.webp" alt="Python logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Python</p>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="java.png" alt="Java logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Java</p>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="figma.png" alt="Figma logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Figma</p>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="canva.webp" alt="Canva logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Canva</p>
+                    </div>
+
+                    <!-- Duplicate for continuous scroll -->
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="html-logo.png" alt="HTML logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">HTML</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="clogo.png" alt="C logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">C</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="jslogo.png" alt="JavaScript logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">JavaScript</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="reactlogo.webp" alt="React logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">React</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="python.webp" alt="Python logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Python</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="clogo.png" alt="C logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">C</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="figma.png" alt="Figma logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Figma</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="canva.webp" alt="Canva logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Canva</p>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <p class="font-bold text-lg text-teal-600 mt-2">
+               Spoken Lanuguages: 
+            </p>
+            <p class="text-gray-600 text-lg mt-2">
+               American Sign Language (Intermediate), English (Fluent), Spanish (Basic)
+            </p>
+            <p class=" font-bold text-lg text-teal-600 mt-2">
+               Programming Languages & Frameworks: 
+            </p>
+            <p class="text-gray-600 text-lg mt-2">
+                C (Intermediate), Java (Intermediate), Python (Basic), JavaScript (Intermediate), HTML (Intermediate), CSS (Intermediate), React (Intermediate)
+            </p>
+            <p class=" font-bold text-lg text-teal-600 mt-2">
+                Design Tools:
+            </p>
+            <p class="text-gray-600 text-lg mt-2">
+                Figma (Intermediate), Canva (Intermediate)
+
+
+        </div>
+
+
+    </section>
+
+
+    <section id="projects" class="py-20 px-4 bg-teal-50">
+        <div class="container mx-auto">
+            <h2 class="section-title text-3xl font-bold mb-12">My Projects</h2>
+
+            <div class="flex flex-wrap justify-center">
+                <!-- Project 1 -->
+                <div class="flex flex-col items-center mb-12 reveal">
+                    <div class="device-container phone reveal">
+                        <div class="device-frame">
+                            <div class="device-notch"></div>
+                            <div class="device-screen">
+                                <img src="pantrypalhome.png" class="device-screenshot" alt="…" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <h3 class="text-xl font-semibold text-gray-800">PantryPal</h3>
+                        <p class="project-description mt-2">
+                            A sleek recipe and pantry management app letting you track ingredients,
+                            plan meals, and reduce food waste.
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- Project 2 -->
+                <div class="flex flex-col items-center mb-12 reveal">
+                    <div class="device-container phone reveal">
+                        <div class="device-frame">
+                            <div class="device-notch"></div>
+                            <div class="device-screen">
+                                <img src="Untitled design (7).png" class="device-screenshot" alt="…" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <h3 class="text-xl font-semibold text-gray-800">ZoTography Mobile</h3>
+                        <p class="project-description mt-2">
+                            A combined, mobile app version of my portfolio and photography buisness site showcasing my talents in app development and photography.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="flex flex-col items-center mb-12 reveal">
+                    <div class="device-container laptop reveal">
+                        <div class="device-frame">
+                            <div class="device-notch"></div> <!-- hidden -->
+                            <div class="device-screen">
+                                <img src="welcomezoto2.png" class="device-screenshot" alt="…" />
+                            </div>
+                            <div class="device-base"></div> <!-- new element for the base -->
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <h3 class="text-xl font-semibold text-gray-800">My Portfolio</h3>
+                        <p class="project-description mt-2">
+                            The site you're on now that I coded and designed using HTML, CSS, JavaScript and my creative mind.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="flex flex-col items-center mb-12 reveal">
+                    <div class="device-container laptop reveal">
+                        <div class="device-frame">
+                            <div class="device-notch"></div> <!-- hidden -->
+                            <div class="device-screen">
+                                <img src="panavistahome.png" class="device-screenshot" alt="…" />
+                            </div>
+                            <div class="device-base"></div> <!-- new element for the base -->
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <h3 class="text-xl font-semibold text-gray-800">PanaVista Tax</h3>
+                        <p class="project-description mt-2">
+                            Tax and legal services website created to increase the amount of customers at the firm.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="flex flex-col items-center mb-12 reveal">
+                    <div class="device-container laptop reveal">
+                        <div class="device-frame">
+                            <div class="device-notch"></div> <!-- hidden -->
+                            <div class="device-screen">
+                                <img src="zotoss.png" class="device-screenshot" alt="…" />
+                            </div>
+                            <div class="device-base"></div> <!-- new element for the base -->
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <h3 class="text-xl font-semibold text-gray-800">ZoTography Web</h3>
+                        <p class="project-description mt-2">
+                            My photography website that hosts my services aswell my photoshoots to come.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+
+
+
+    </section>
+
+
+    <section id="photography" class="py-20 px-4 bg-white">
+        <div class="container mx-auto">
+            <h2 class="section-title text-3xl font-bold mb-12">Photography</h2>
+
+            <div class="photo-grid">
+                <div class="photo-item reveal">
+                    <img src="canonlens1.png" alt="Photography">
+                    alt="Landscape Photography">
+                    <div class="photo-overlay">
+                        <h3 class="text-lg font-semibold">Product Photography</h3>
+                        <p class="text-sm">Captured using DSLR macro lens on Canon.</p>
+                    </div>
+                </div>
+
+                <div class="photo-item reveal">
+                    <img src="tree1.png" alt=" treePhotography">
+                    alt="Nature Photography">
+                    <div class="photo-overlay">
+                        <h3 class="text-lg font-semibold">Nature Photography Shoot</h3>
+                        <p class="text-sm">Captured photos of tall trees at Lake Baldwin Park, Orlando, FL.</p>
+                    </div>
+                </div>
+
+                <div class="photo-item reveal">
+                    <img src="treeshoot2.png" alt="tree2Photography">
+                    alt="Nature Photography">
+                    <div class="photo-overlay">
+                        <h3 class="text-lg font-semibold">Nature Photography</h3>
+                        <p class="text-sm">Image captured at pier near Lake Baldwin Park, Orlando, FL.</p>
+                    </div>
+                </div>
+
+                <div class="photo-item reveal">
+                    <img src="jaxskyline.JPG" alt="Jacksonville Skyline">
+                    alt="Wildlife Photography">
+                    <div class="photo-overlay">
+                        <h3 class="text-lg font-semibold">Skyline Photography</h3>
+                        <p class="text-sm">Wonderful shot of the nightime skyline in Jacksonville, FL.</p>
+                    </div>
+                </div>
+
+                <div class="photo-item reveal">
+                    <img src="albumcover.jpg" alt="Album Cover Photography & Graphic Design">
+                    <div class="photo-overlay">
+                        <h3 class="text-lg font-semibold">Album Cover Photography & Graphic Design</h3>
+                        <p class="text-sm">Blending two parts of the ocean to make it appear that the artist is stranded
+                            out in the middle of the ocean.</p>
+                    </div>
+                </div>
+
+                <div class="photo-item reveal">
+                    <img src="photoshoot5.jpg" alt="Photoshoot Photography">
+                    <div class="photo-overlay">
+                        <h3 class="text-lg font-semibold">Photoshoot Photography</h3>
+                        <p class="text-sm">Using a DSLR and Polaroid Camera to get the outcome for this project.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 px-4 bg-teal-50 text-gray-800">
+        <div class="container mx-auto">
+        
+
+            <!-- 3-column flex wrapper -->
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-12">
+
+                <!-- LEFT COLUMN: heading + intro text -->
+                <div class="md:w-1/4 text-center md:text-center">
+                    <h3 class="text-2xl md:text-5xl font-extrabold mb-4">
+                        Let's Stay In Touch!
+                    </h3>
+                    <p class="text-lg md:text-center">
+                        Have a project in mind or want to collaborate? Don't hesitate to reach out! I'm always eager and would be more than happy to talk about it! Always looking for new Projects.
+                    </p>
+                    
+                    
+                </div>
+
+                <!-- CENTER COLUMN: Pikachu avatar, big head, and socials -->
+                <div class="md:w-1/2 flex flex-col items-center space-y-8">
+                    <!-- Pikachu rounded-square -->
+                    <div class="w-20 h-16 md:w-25 md:h-30 bg-white rounded-2xl overflow-hidden shadow-lg floating glow">
+                        <img src="pika2.png" alt="Pikachu" class="w-full h-full object-cover" />
+                    </div>
+
+                    <!-- Big floating head -->
+                    <div class="profile-pic floating glow
+                    w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96
+                    rounded-full overflow-hidden shadow-lg">
+                        <img src="2ndpfpc.jpg" alt="Lorenzo Wyman" class="w-full h-full object-cover" />
+                    </div>
+
+                    <!-- Social icons -->
+                    <div class="flex space-x-6">
+                        <a href="https://github.com/lwyman2704/" target="_blank"
+                            class="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow hover:shadow-lg transition">
+                            <img src="githublogo.png" alt="GitHub" class="w-10 h-10" />
+                        </a>
+                        <a href="https://www.linkedin.com/in/lorenzo-wyman-93808b258/" target="_blank"
+                            class="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow hover:shadow-lg transition">
+                            <img src="linkedinlogo.png" alt="LinkedIn" class="w-10 h-10" />
+                        </a>
+                        <a href="mailto:you@example.com"
+                            class="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow hover:shadow-lg transition">
+                            <img src="gmaillogo.png" alt="Email" class="w-9 h-7" />
+                        </a>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: closing subtext -->
+                <div class="md:w-1/4 text-center md:text-center">
+                    <p class="text-lg md:text-4xl">
+                        Lorenzo Wyman
+                    </p>
+
+                      <p class="text-lg md:text-xl">
+                        Graphic Designer & Front-End Developer
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <script>
+        // 1) Hero text fade-in on load
+        window.addEventListener('load', () => {
+            const h1 = document.getElementById('heroText1');
+            const h2 = document.getElementById('heroText2');
+            h1.classList.add('fade-in');
+            setTimeout(() => h2.classList.add('fade-in'), 500);
+        });
+
+        // 2) Reveal sections as you scroll
+        const reveals = document.querySelectorAll('.reveal');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        reveals.forEach(el => io.observe(el));
+
+        // 3) Play/pause your carousel (and toggle the icon)
+        const playBtn = document.getElementById('playButton');
+        const playI = document.getElementById('playIcon');
+        const pauseI = document.getElementById('pauseIcon');
+        const carouselInner = document.querySelector('.carousel-inner');
+
+        playBtn.addEventListener('click', () => {
+            const isPaused = carouselInner.style.animationPlayState === 'paused';
+            carouselInner.style.animationPlayState = isPaused ? 'running' : 'paused';
+            playI.style.display = isPaused ? '' : 'none';
+            pauseI.style.display = isPaused ? 'none' : '';
+        });
+    </script>
+
+</body>
