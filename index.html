@@ -250,8 +250,42 @@
         }
 
         .tech-icon {
-            width: 80px;
-            height: 80px;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .tech-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .tech-icon img {
+            /* Make the image fill the 150x150 parent container */
+            width: 100%; 
+            height: 100%;
+
+            /* Apply the 16px border-radius to the image */
+            border-radius: 16px; 
+
+            /* Ensure the image covers the area without distortion */
+            object-fit: cover; 
+        }
+
+        .tech-icon svg {
+            width: 50px;
+            height: 50px;
+        }
+
+         .tech1-icon {
+            width: 120px;
+            height: 120px;
             margin: 0 auto;
             display: flex;
             align-items: center;
@@ -830,8 +864,9 @@
                 <div class="education-item reveal">
                     <h3 class="text-xl font-bold text-gray-800">Bachelors of Science in Computer Science</h3>
                     <p class="text-gray-500">University of Central Florida | Orlando, FL | 2024 - Present</p>
-                    <p class="text-gray-600 mt-2">Related Coursework: Computer Science I, Computer Logic and
-                        Orginazation, Intro to Discrete Mathematics, Object Oriented Programming, Security in Computing
+                    <p class="text-gray-600 mt-2">Related Coursework: Computer Science I & II, Computer Logic and
+                        Orginazation, Intro to Discrete, Object Oriented Programming, Security in Computing, User Experience & Design,
+                        Systems Software
                     </p>
                     <p class="text-gray-600 mt-2">Clubs & Academic Involvements: EXCEL Program & Peer Coaching, Knight Hacks Outreach Team, Hack@UCF,
                         Design & Code@UCF</p>
@@ -859,9 +894,9 @@
                 <div class="education-item reveal">
                     <h3 class="text-xl font-bold text-gray-800">Knight Shadow Program</h3>
                     <p class="text-gray-500">RF-SMART | Jacksonville, FL | August 2025 </p>
-                    <p class="text-gray-600 mt-2">*Shadow professionals at RF-SMART, gaining insight into enterprise software solutions. </p>
-                    <p class="text-gray-600 mt-2">*Observe meetings and work process of software developers and analysts</p>
-                    <p class="text-gray-600 mt-2">*more</p>
+                    <p class="text-gray-600 mt-2">Shadowed and connected with professionals at RF-SMART, gaining insight into enterprise software solutions. </p>
+                    <p class="text-gray-600 mt-2">Observe meetings and work process of software developers and analysts</p>
+                    <p class="text-gray-600 mt-2"></p>
                 </div>
 
                  <div class="education-item reveal">
@@ -879,8 +914,7 @@
 
                 <div class="education-item reveal">
                     <h3 class="text-xl font-bold text-gray-800">Outreach Team Photographer</h3>
-                    <p class="text-gray-500">Knight Hacks | University of Central Florida | Orlando, FL | May 2025 -
-                        Present</p>
+                    <p class="text-gray-500">Knight Hacks | University of Central Florida | Orlando, FL | Summer & Fall 2025</p>
                     <p class="text-gray-600 mt-2">Coordinated and planned photo opportunities at events (Tabling,
                         Hackathons, Meetings & Interviews).</p>
                     <p class="text-gray-600 mt-2">Promoted, assisted, and contributed to the short form content posted
@@ -918,303 +952,7 @@
         </div>
     </section>
 
-    <section id="skills" class="py-20 px-4 bg-teal-50">
-        <div class="container mx-auto">
-            <h2 class="section-title text-3xl font-bold mb-12">
-                Skills & Technologies
-            </h2>
-
-            <p class="text-gray-600 text-lg mt-2">
-                Here are some of the technologies and tools I work with regularly.
-            </p>
-
-            <p class="text-gray-600 text-lg mt-2 mb-6">
-                My skill set is always evolving as I learn new things and take on new challenges.
-            </p>
-            <div class="carousel">
-                <div class="carousel-inner">
-
-                    <!-- Primary set -->
-                    <div class="carousel-item">
-                        <div class="tech-icon">
-                            <img src="html-logo.png" alt="HTML logo" class="w-12 h-12 object-contain" />
-                        </div>
-                        <p class="mt-2 text-gray-700">HTML</p>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="tech-icon">
-                            <img src="java.png" alt="Java logo" class="w-12 h-12 object-contain" />
-                        </div>
-                        <p class="mt-2 text-gray-700">Java</p>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="tech-icon">
-                            <img src="jslogo.png" alt="JavaScript logo" class="w-12 h-12 object-contain" />
-                        </div>
-                        <p class="mt-2 text-gray-700">JavaScript</p>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="tech-icon">
-                            <img src="reactlogo.webp" alt="React logo" class="w-12 h-12 object-contain" />
-                        </div>
-                        <p class="mt-2 text-gray-700">React</p>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="tech-icon">
-                            <img src="python.webp" alt="Python logo" class="w-12 h-12 object-contain" />
-                        </div>
-                        <p class="mt-2 text-gray-700">Python</p>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="tech-icon">
-                            <img src="java.png" alt="Java logo" class="w-12 h-12 object-contain" />
-                        </div>
-                        <p class="mt-2 text-gray-700">Java</p>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="tech-icon">
-                            <img src="figma.png" alt="Figma logo" class="w-12 h-12 object-contain" />
-                        </div>
-                        <p class="mt-2 text-gray-700">Figma</p>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="tech-icon">
-                            <img src="canva.webp" alt="Canva logo" class="w-12 h-12 object-contain" />
-                        </div>
-                        <p class="mt-2 text-gray-700">Canva</p>
-                    </div>
-
-                    <!-- Duplicate for continuous scroll -->
-                    <div class="carousel-item">
-                        <div class="tech-icon">
-                            <img src="html-logo.png" alt="HTML logo" class="w-12 h-12 object-contain" />
-                        </div>
-                        <p class="mt-2 text-gray-700">HTML</p>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="tech-icon">
-                            <img src="clogo.png" alt="C logo" class="w-12 h-12 object-contain" />
-                        </div>
-                        <p class="mt-2 text-gray-700">C</p>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="tech-icon">
-                            <img src="jslogo.png" alt="JavaScript logo" class="w-12 h-12 object-contain" />
-                        </div>
-                        <p class="mt-2 text-gray-700">JavaScript</p>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="tech-icon">
-                            <img src="reactlogo.webp" alt="React logo" class="w-12 h-12 object-contain" />
-                        </div>
-                        <p class="mt-2 text-gray-700">React</p>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="tech-icon">
-                            <img src="python.webp" alt="Python logo" class="w-12 h-12 object-contain" />
-                        </div>
-                        <p class="mt-2 text-gray-700">Python</p>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="tech-icon">
-                            <img src="clogo.png" alt="C logo" class="w-12 h-12 object-contain" />
-                        </div>
-                        <p class="mt-2 text-gray-700">C</p>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="tech-icon">
-                            <img src="figma.png" alt="Figma logo" class="w-12 h-12 object-contain" />
-                        </div>
-                        <p class="mt-2 text-gray-700">Figma</p>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="tech-icon">
-                            <img src="canva.webp" alt="Canva logo" class="w-12 h-12 object-contain" />
-                        </div>
-                        <p class="mt-2 text-gray-700">Canva</p>
-                    </div>
-
-                </div>
-            </div>
-
-
-            <p class="font-bold text-lg text-teal-600 mt-2">
-                Spoken Lanuguages:
-            </p>
-            <p class="text-gray-600 text-lg mt-2">
-                American Sign Language (Intermediate), English (Fluent), Spanish (Basic)
-            </p>
-            <p class=" font-bold text-lg text-teal-600 mt-2">
-                Programming Languages & Frameworks:
-            </p>
-            <p class="text-gray-600 text-lg mt-2">
-                C (Intermediate), Java (Intermediate), Python (Basic), JavaScript (Intermediate), HTML (Intermediate),
-                CSS (Intermediate), React (Intermediate)
-            </p>
-            <p class=" font-bold text-lg text-teal-600 mt-2">
-                Design Tools:
-            </p>
-            <p class="text-gray-600 text-lg mt-2">
-                Figma (Intermediate), Canva (Intermediate)
-
-
-        </div>
-
-
-    </section>
-
-    <section id="skills" class="py-20 px-4 bg-gray-50">
-        <div class="container mx-auto">
-            <h2 class="section-title text-3xl font-bold mb-12">
-                Major Assignments
-            </h2>
-
-
-
-            <p class="text-gray-600 font-bold text-lg mt-2 mb-6">
-                COP3502C - Computer Science I:
-            </p>
-            <p class="text-gray-600 text-lg mt-2 mb-6">
-                - Assignment #1 –
-                <a href="library.c" target="_blank" rel="noopener noreferrer"
-                    class="text-teal-600 underline hover:text-teal-800">
-                    “Library Storage System” (C File)
-                </a>
-            </p>
-            <p class="text-gray-600 text-lg mt-2 mb-6">
-                - Assignment #2 –
-                <a href="library_system.c" target="_blank" rel="noopener noreferrer"
-                    class="text-teal-600 underline hover:text-teal-800">
-                    “Library System” (C File)
-                </a>
-            
-            <p class="text-gray-600 text-lg mt-2 mb-6">
-                - Assignment #3 –
-                <a href="predict.c" target="_blank" rel="noopener noreferrer"
-                    class="text-teal-600 underline hover:text-teal-800">
-                    “Prediction” (C File)
-                </a>
-                <a href="test_predict.py" target="_blank" rel="noopener noreferrer"
-                    class="text-teal-600 underline hover:text-teal-800">
-                    "Python Test File" (Python File)
-                </a>
-            </p>
-            <p class="text-gray-600 text-lg mt-2 mb-6">
-                - Assignment #4 –
-                <a href="grade_analyzer.c" target="_blank" rel="noopener noreferrer"
-                    class="text-teal-600 underline hover:text-teal-800">
-                    “Grade Analyzer” (C File)
-                </a>
-            </p>
-
-            <p class="text-gray-600 font-bold text-lg mt-2 mb-6">
-                CDA3103C - Computer Logic and Organization:
-            </p>
-            <p class="text-gray-600 text-lg mt-2 mb-6">
-                - Final Assignment: MIPS Simulator –
-                <a href="spimcore.c" target="_blank" rel="noopener noreferrer"
-                    class="text-teal-600 underline hover:text-teal-800">
-                    “spimcore” (C File),
-                </a>
-                 <a href="spimcore.h" target="_blank" rel="noopener noreferrer"
-                    class="text-teal-600 underline hover:text-teal-800">
-                    "spimcore” (C Header File),
-                </a>
-                 <a href="project.c" target="_blank" rel="noopener noreferrer"
-                    class="text-teal-600 underline hover:text-teal-800">
-                    "project” (C File),
-                </a>
-                <a href="input_file.asc" target="_blank" rel="noopener noreferrer"
-                    class="text-teal-600 underline hover:text-teal-800">
-                    "input_file” (.asc File)
-                </a>
-
-            </p>
-            
-            <p class="text-gray-600 font-bold text-lg mt-2 mb-6">
-                CIS3360 - Security in Computing:
-            </p>
-            <p class="text-gray-600 text-lg mt-2 mb-6">
-                - Assignment #1: PA01 –
-                <a href="pa01.c" target="_blank" rel="noopener noreferrer"
-                    class="text-teal-600 underline hover:text-teal-800">
-                    "pa01” (C File),
-                </a>
-                 <a href="pa01x-1.sh" target="_blank" rel="noopener noreferrer"
-                    class="text-teal-600 underline hover:text-teal-800">
-                    "pa01x-1.sh testing file” (bash File) (there are a lot of test files, so I only included one)
-                </a>
-            </p>
-
-            <p class="text-gray-600 text-lg mt-2 mb-6">
-                - Assignment #2: PA02 –
-                <a href="pa02.c" target="_blank" rel="noopener noreferrer"
-                    class="text-teal-600 underline hover:text-teal-800">
-                    "pa02” (C File) (alot of test files, so I only included one)
-                </a>
-        
-            </p>
-
-            <p class="text-gray-600 font-bold text-lg mt-2 mb-6">
-                ENC3241 - Technical Writing:
-            </p>
-
-            <p class="text-gray-600 text-lg mt-2 mb-6">
-                <!-- Project #1 with a direct link to the PDF -->
-                - Project #1 – Instructions Manual -
-                <a href="wymanLProject1.pdf" target="_blank" rel="noopener noreferrer"
-                    class="text-teal-600 underline hover:text-teal-800">
-                    “How to Properly Wash and Maintain Curly or Kinky Hair” (PDF)
-                </a>
-            </p>
-
-            
-
-            <p class="text-gray-600 text-lg mt-2 mb-6">
-                - Project #3 – Research Proposal –
-                <a href="Project 3_ Final Draft.pdf" target="_blank" rel="noopener noreferrer"
-                    class="text-teal-600 underline hover:text-teal-800">
-                    “Behind the Screen: Human Perception vs. Reality of Skeleton Screens and Progress Indicator User
-                    Experiences” (PDF)
-                </a>
-            </p>
-
-            <p class="text-gray-600 text-lg mt-2 mb-6">
-                - Activity #9 – Build Your Portfolio (This Site)
-            
-            </p>
-
-            <p class="text-gray-600 font-bold text-lg mt-2 mb-6">
-                COP3330 - Object Oriented Programming:
-            </p>
-
-            <p class="text-gray-600 text-lg mt-2 mb-6">
-                - Assignment #1: – Growable Array of Integers - 
-                <a href="IntegerList.java" target="_blank" rel="noopener noreferrer"
-                    class="text-teal-600 underline hover:text-teal-800">
-                    "IntegerList" (Java File),
-                </a>
-        
-                 <a href="Main.java" target="_blank" rel="noopener noreferrer"
-                    class="text-teal-600 underline hover:text-teal-800">
-                    "Main" (Java File)
-                </a>
-            </p>
-
-        </div>
-    </section>
-
-
-
-
-    <section id="projects" class="py-20 px-4 bg-teal-50">
+<section id="projects" class="py-20 px-4 bg-teal-50">
         <div class="container mx-auto">
             <h2 class="section-title text-3xl font-bold mb-12">My Projects</h2>
 
@@ -1234,6 +972,10 @@
                         <p class="project-description mt-2">
                             A sleek recipe and pantry management app letting you track ingredients,
                             plan meals, and reduce food waste.
+                        </p>
+
+                        <p class="project-description mt-2">
+                           Led the UI design and other front-end dev aspects.
                         </p>
                     </div>
                 </div>
@@ -1284,6 +1026,41 @@
                         <div class="device-frame">
                             <div class="device-notch"></div> <!-- hidden -->
                             <div class="device-screen">
+                                <img src="uknightedsignup.png" class="device-screenshot" alt="…" />
+                            </div>
+                            <div class="device-base"></div> <!-- new element for the base -->
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="mt-4 text-center">
+                        <h3 class="text-xl font-semibold text-gray-800">UKnighted</h3>
+                        <p class="project-description mt-2">
+                            A centralized platform for UCF Students to connect with peers, find study groups, and allieviate
+                            feelings of loneliness on campus. 
+                            <p class="project-description mt-2"> Made with Figma Prototyping for my User Experience and Design course group project. </p>
+                            <p class="project-description mt-2">Led the redesign of the UI, overall flow and initial concept alongside my groupmates. </p>
+                        </p>
+                    </div>
+                    <div class="device-container laptop reveal">
+                        <div class="device-frame">
+                            <div class="device-notch"></div> <!-- hidden -->
+                            <div class="device-screen">
+                                <img src="uknightedhome.png" class="device-screenshot" alt="…" />
+                            </div>
+                            <div class="device-base"></div> <!-- new element for the base -->
+                        </div>
+                    </div>
+
+                    
+
+                <!-- Project 5 -->
+                <div class="flex flex-col items-center mb-12 reveal">
+                    <div class="device-container laptop reveal">
+                        <div class="device-frame">
+                            <div class="device-notch"></div> <!-- hidden -->
+                            <div class="device-screen">
                                 <img src="panavistahome.png" class="device-screenshot" alt="…" />
                             </div>
                             <div class="device-base"></div> <!-- new element for the base -->
@@ -1320,8 +1097,545 @@
         </div>
         </div>
 
+    </section>
+
+    <section id="skills" class="py-20 px-4 bg-teal-50">
+        <div class="container mx-auto">
+            <h2 class="section-title text-3xl font-bold mb-12">
+                Skills & Technologies
+            </h2>
+
+            <p class="text-gray-600 text-lg mt-2">
+                Here are some of the technologies and tools I work with regularly.
+            </p>
+
+            <p class="text-gray-600 text-lg mt-2 mb-6">
+                My skill set is always evolving as I learn new things and take on new challenges.
+            </p>
+            <div class="carousel">
+                <div class="carousel-inner">
+
+                    <!-- Primary set -->
+                    <div class="carousel-item">
+                        <div class="tech1-icon">
+                            <img src="html-logo.png" alt="HTML logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">HTML</p>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="tech1-icon">
+                            <img src="java.png" alt="Java logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Java</p>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="tech1-icon">
+                            <img src="jslogo.png" alt="JavaScript logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">JavaScript</p>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="tech1-icon">
+                            <img src="reactlogo.webp" alt="React logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">React</p>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="tech1-icon">
+                            <img src="python.webp" alt="Python logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Python</p>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="tech1-icon">
+                            <img src="java.png" alt="Java logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Java</p>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="tech1-icon">
+                            <img src="figma.png" alt="Figma logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Figma</p>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="tech1-icon">
+                            <img src="canva.webp" alt="Canva logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Canva</p>
+                    </div>
+
+                    <!-- Duplicate for continuous scroll -->
+                    <div class="carousel-item">
+                        <div class="tech1-icon">
+                            <img src="html-logo.png" alt="HTML logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">HTML</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech1-icon">
+                            <img src="clogo.png" alt="C logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">C</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech1-icon">
+                            <img src="jslogo.png" alt="JavaScript logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">JavaScript</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech1-icon">
+                            <img src="reactlogo.webp" alt="React logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">React</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech1-icon">
+                            <img src="python.webp" alt="Python logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Python</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech1-icon">
+                            <img src="clogo.png" alt="C logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">C</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech1-icon">
+                            <img src="figma.png" alt="Figma logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Figma</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech1-icon">
+                            <img src="canva.webp" alt="Canva logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Canva</p>
+                    </div>
+
+                </div>
+            </div>
 
 
+            <p class="font-bold text-lg text-teal-600 mt-2">
+                Spoken Lanuguages:
+            </p>
+            <p class="text-gray-600 text-lg mt-2">
+                American Sign Language (Intermediate), English (Fluent), Spanish (Basic)
+            </p>
+            <p class=" font-bold text-lg text-teal-600 mt-2">
+                Programming Languages & Frameworks:
+            </p>
+            <p class="text-gray-600 text-lg mt-2">
+                C (Intermediate), Java (Intermediate), Python (Basic), JavaScript (Intermediate), HTML (Intermediate),
+                CSS (Intermediate), React (Intermediate)
+            </p>
+            <p class=" font-bold text-lg text-teal-600 mt-2">
+                Design Tools:
+            </p>
+            <p class="text-gray-600 text-lg mt-2">
+                Figma (Intermediate), Canva (Intermediate)
+
+
+        </div>
+
+
+    </section>
+
+    <section id="skills" class="py-20 px-4 bg-teal-50">
+        <div class="container mx-auto">
+            <h2 class="section-title text-3xl font-bold mb-12">
+                Music & Albums
+            </h2>
+
+            <p class="text-gray-600 text-lg mt-2">
+                A Couple of fav ablums/ songs.
+            </p>
+
+            <p class="text-gray-600 text-lg mt-5 mb-8">
+                My skill set is always evolving as I learn new things and take on new challenges.
+            </p>
+            <div class="carousel">
+                <div class="carousel-inner">
+
+                    <!-- Primary set -->
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="gnx.jpeg" alt="GNX album cover" />
+                        </div>
+                        <p class="mt-2 text-gray-700">GNX</p>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="heavy.jpeg" alt="Java logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Heavy</p>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="4.jpeg" alt="JavaScript logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">4</p>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="chasingthesummer.jpeg" alt="React logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Chasing The Summer</p>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="cyber.jpeg" alt="Python logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">CYBER</p>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="lk99.jpeg" alt="Java logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">LK99: The Prelude</p>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="lovejones.jpeg" alt="Figma logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Love.Jones</p>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="maybeinnirvana.jpeg" alt="Canva logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Maybe In Nirvana</p>
+                    </div>
+
+                    <!-- Duplicate for continuous scroll -->
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="openthiswall.jpeg" alt="HTML logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">open this wall</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="sonicmania.jpeg" alt="C logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Sonic Mania</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="sos.jpeg" alt="JavaScript logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">SOS</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="su.jpeg" alt="React logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Steven Universe</p>
+                    </div>
+                
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="unitedingrief.jpg" alt="Canva logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">United in Grief</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container mx-auto">
+            
+            <div class="carousel">
+                <div class="carousel-inner">
+
+                    <!-- Primary set -->
+                     <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="aaa.jpeg" alt="Python logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">AAA</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="unveranosinti.jpeg" alt="Python logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Un Verano Sin Ti</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="Luv4Rent.png" alt="Python logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Luv4Rent</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="renaissance.jpg" alt="Python logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Renaissance</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="fullmoon.jpg" alt="Canva logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Full Moon</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="cc.jpeg" alt="Python logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Cowboy Carter</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="tld.jpeg" alt="Python logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">The Last Dance</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="wnm.jpeg" alt="Python logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Why Not More?</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="widty.jpeg" alt="Python logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">What I Didn't Tell You</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="abnh.jpeg" alt="Python logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Alligator Bites Never Heal</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="theyearbook.jpeg" alt="Python logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">The Yearbook</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="timely.jpeg" alt="C logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Timely</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="thriller.png" alt="Figma logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">Thriller</p>
+                    </div>
+                    
+                      <div class="carousel-item">
+                        <div class="tech-icon">
+                            <img src="wHIMSY.jpeg" alt="Canva logo" class="w-12 h-12 object-contain" />
+                        </div>
+                        <p class="mt-2 text-gray-700">wHIMSY</p>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="section-title text-3xl font-bold mb-12">
+                Major Assignments
+            </h2>
+
+            <!-- CAP4102 -->
+            <p class="text-gray-600 font-bold text-lg mt-2 mb-6">
+                CAP4102 - User Experience and Design:
+
+            </p>
+            
+            <p class="text-gray-600 text-lg mt-2 mb-6">
+                - UKnighted –
+                <a href="https://www.figma.com/proto/dvN7V2ZDzf7gVzPg0vju85/uknighted-prototype-v2?node-id=2069-
+                410&p=f&t=XbOZgkBrZKyDE931-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2069%3A410" 
+                target="_blank" rel="noopener noreferrer"
+                    class="text-teal-600 underline hover:text-teal-800">
+                    Link to Figma Prototype
+                </a>
+            </p>
+
+            <!-- CDA3103 -->
+            <p class="text-gray-600 font-bold text-lg mt-2 mb-6">
+                CDA3103C - Computer Logic and Organization:
+            </p>
+
+            <p class="text-gray-600 text-lg mt-2 mb-6">
+                - MIPS Simulator –
+               
+                 <a href="project.c" target="_blank" rel="noopener noreferrer"
+                    class="text-teal-600 underline hover:text-teal-800">
+                    Project (C File)
+                </a>
+
+            </p>
+            <!-- CIS3360 -->
+            <p class="text-gray-600 font-bold text-lg mt-2 mb-6">
+                CIS3360 - Security in Computing:
+            </p>
+           <!-- <p class="text-gray-600 text-lg mt-2 mb-6">
+                - Assignment #1: PA01 –
+                <a href="pa01.c" target="_blank" rel="noopener noreferrer"
+                    class="text-teal-600 underline hover:text-teal-800">
+                    "pa01” (C File),
+                </a>
+                 <a href="pa01x-1.sh" target="_blank" rel="noopener noreferrer"
+                    class="text-teal-600 underline hover:text-teal-800">
+                    "pa01x-1.sh testing file” (bash File) (there are a lot of test files, so I only included one)
+                </a>
+            </p>
+        -->
+            <p class="text-gray-600 text-lg mt-2 mb-6">
+                - PA02: Checksums –
+                <a href="pa02.c" target="_blank" rel="noopener noreferrer"
+                    class="text-teal-600 underline hover:text-teal-800">
+                    PA02 (C File)
+                </a>
+        
+            </p>
+
+            <!-- OOP -->
+            <p class="text-gray-600 font-bold text-lg mt-2 mb-6">
+                COP3330 - Object Oriented Programming:
+            </p>
+
+            <p class="text-gray-600 text-lg mt-2 mb-6">
+                - Growable Array of Integers - 
+                <a href="IntegerList.java" target="_blank" rel="noopener noreferrer"
+                    class="text-teal-600 underline hover:text-teal-800">
+                    IntegerList (Java File)
+                </a>
+    
+            </p>
+
+
+            <!-- COP3402C -->
+            <p class="text-gray-600 font-bold text-lg mt-2 mb-6">
+                COP3402C - System Software:
+            </p>
+            
+            <p class="text-gray-600 text-lg mt-2 mb-6">
+                - CodeGen: Compiler Project –
+                <a href="CodeGen1.cpp" target="_blank" rel="noopener noreferrer"
+                    class="text-teal-600 underline hover:text-teal-800">
+                    CodeGen1 (C++ File),
+                </a>
+                 <a href="CodeGen2.cpp" target="_blank" rel="noopener noreferrer"
+                    class="text-teal-600 underline hover:text-teal-800">
+                    CodeGen2 (C++ File),
+                </a>
+                 <a href="CodeGen3.cpp" target="_blank" rel="noopener noreferrer"
+                    class="text-teal-600 underline hover:text-teal-800">
+                    CodeGen3 (C++ File)
+                </a>
+            </p>
+            
+            <!-- CS1 -->
+            <p class="text-gray-600 font-bold text-lg mt-2 mb-6">
+                COP3502C - Computer Science I:
+            </p>
+            <!--
+            <p class="text-gray-600 text-lg mt-2 mb-6">
+                - Assignment #1 –
+                <a href="library.c" target="_blank" rel="noopener noreferrer"
+                    class="text-teal-600 underline hover:text-teal-800">
+                    “Library Storage System” (C File)
+                </a>
+            </p>
+            <p class="text-gray-600 text-lg mt-2 mb-6">
+                - Assignment #2 –
+                <a href="library_system.c" target="_blank" rel="noopener noreferrer"
+                    class="text-teal-600 underline hover:text-teal-800">
+                    “Library System” (C File)
+                </a>
+                
+            <p class="text-gray-600 text-lg mt-2 mb-6">
+                - Assignment #3 –
+                <a href="predict.c" target="_blank" rel="noopener noreferrer"
+                    class="text-teal-600 underline hover:text-teal-800">
+                    “Prediction” (C File)
+                </a>
+                <a href="test_predict.py" target="_blank" rel="noopener noreferrer"
+                    class="text-teal-600 underline hover:text-teal-800">
+                    "Python Test File" (Python File)
+                </a>
+            </p>
+        -->
+            <p class="text-gray-600 text-lg mt-2 mb-6">
+                - Grade Analyzer –
+                <a href="grade_analyzer.c" target="_blank" rel="noopener noreferrer"
+                    class="text-teal-600 underline hover:text-teal-800">
+                    Grade Analyzer (C File)
+                </a>
+            </p>
+            
+            <!-- CS2 -->
+            <p class="text-gray-600 font-bold text-lg mt-2 mb-6">
+                COP3503C - Computer Science II:
+            </p>
+            
+            <p class="text-gray-600 text-lg mt-2 mb-6">
+                - Treasure Hunter (Dynamic Programming) –
+        
+                <a href="TreasureHunt.java" target="_blank" rel="noopener noreferrer"
+                    class="text-teal-600 underline hover:text-teal-800">
+                    TreasureHunt (Java File)
+                </a>
+            </p>
+
+            <p class="text-gray-600 text-lg mt-2 mb-6">
+                - Campus Network Planner (Kruskal) –
+                
+                <a href="CampusNetworkPlanner.java" target="_blank" rel="noopener noreferrer"
+                    class="text-teal-600 underline hover:text-teal-800">
+                    CampusNetworkPlanner (Java File)
+                </a>
+            </p>
+
+            <!-- ENC -->
+            <p class="text-gray-600 font-bold text-lg mt-2 mb-6">
+                ENC3241 - Technical Writing:
+            </p>
+
+            
+            <p class="text-gray-600 text-lg mt-2 mb-6">
+                - Research Proposal –
+                <a href="Project 3_ Final Draft.pdf" target="_blank" rel="noopener noreferrer"
+                    class="text-teal-600 underline hover:text-teal-800">
+                    “Behind the Screen: Human Perception vs. Reality of Skeleton Screens and Progress Indicator User
+                    Experiences” (PDF)
+                </a>
+            </p>
+
+            <p class="text-gray-600 text-lg mt-2 mb-6">
+                - Build Your Portfolio (This Site)
+            
+            </p>
+
+        </div>
     </section>
 
 
